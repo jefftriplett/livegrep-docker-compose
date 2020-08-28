@@ -22,7 +22,17 @@ docker-compose build
 ## Usage
 
 ```sh
+# copy and edit a new .env config file
+cp sample.env .env
+
+# use your public GitHub (max 50 projects) to see the search engine
+make build-index
+
+# run the search
 docker-compose up
+
+# open http://localhost:8910 in your local web browser
+open http://localhost:8910
 ```
 
 ## Author
