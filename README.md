@@ -9,7 +9,12 @@
   </a>
 </p>
 
-> Docker Compose setup for running Livegrep
+> Docker Compose setup for running [Livegrep](https://github.com/livegrep/livegrep)
+
+A few weeks ago, I stumbled on the article, "[Get faster GitHub search with Livegrep](https://www.alexdebrie.com/posts/faster-code-search-livegrep/)" and it made me realize how helpful it would be to have a local search of my projects.
+
+After a few unsuccessful attempts at getting Livegrep to work, this was what worked for me. 
+
 
 ### 🏠 [Homepage](https://github.com/alexdebrie/deploy-livegrep)
 
@@ -34,6 +39,11 @@ docker-compose up
 # open http://localhost:8910 in your local web browser
 open http://localhost:8910
 ```
+## Resources
+
+- [Get faster GitHub search with Livegrep](https://www.alexdebrie.com/posts/faster-code-search-livegrep/)
+- [livegrep/livegrep](https://github.com/livegrep/livegrep) - Interactively grep source code. Source for http://livegrep.com/
+- [alexdebrie/deploy-livegrep](https://github.com/alexdebrie/deploy-livegrep) - Docker images and utilities for deploying Livegrep.
 
 ## Author
 
