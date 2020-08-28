@@ -1,0 +1,35 @@
+version: "3.6"
+
+services:
+
+  codesearch:
+    image: "livegrep/indexer:${DOCKER_TAG:-latest}"
+    command:
+      - "/livegrep/bin/codesearch"
+      - "-debug=profile,index"
+      - "-grpc=0.0.0.0:9999"
+      - "-load_index=${LIVEGREP_INDEX:-/data/index.idx}"
+      - "-threads=4"
+    env_file:
+      - ".env"
+    environment:
+      - GITHUB_TOKEN
+      - GITHUB_USER
+    expose:
+      - "9999"
+    volumes:
+      - "./data:/data"
+
+  livegrep:
+    image: "livegrep/base:${DOCKER_TAG:-latest}"
+    command:
+      - "/livegrep/bin/livegrep"
+      - "-connect=codesearch:9999"
+      - "-docroot=/livegrep/web"
+      - "-listen=0.0.0.0:8910"
+    depends_on:
+      - codesearch
+    env_file:
+      - ".env"
+    ports:
+      - "8910:8910"
